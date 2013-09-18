@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/home/brand/workspace/SMSBeta/tests/res" />
+        <source path="/home/brand/workspace/SMSBeta/build/res/rs/test" />
+    </dataSet>
+
+</merger>

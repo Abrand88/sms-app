@@ -1,0 +1,12 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1377013350000 877 693d37131cab049fa3cc4fa4d610562f1c6a1fc6 /home/brand/workspace/SMSBeta/src/com/asb/smsbeta/db/ChatTable.java
+1377027823000 1987 299bd161c918e82c6e0ff971ec1fa7ed65166b7d /home/brand/workspace/SMSBeta/src/com/asb/smsbeta/db/MyContentProvider.java
+1377013350000 1267 53884c0a548fb0f176d46558f5e3cf760e8331f6 /home/brand/workspace/SMSBeta/src/com/asb/smsbeta/db/MessageTable.java
+1377013316000 1258 8b2d00ecde9bdb0fac96de2fbe768859333138a4 /home/brand/workspace/SMSBeta/src/com/asb/smsbeta/MainActivity.java
+1377021300000 3062 f7e2e31f688ed8b1cddf4126b96bf21d49dd9ef3 /home/brand/workspace/SMSBeta/src/com/asb/smsbeta/chat/ChatFragment.java
+1377013365000 54 95b33925ba0ad5d07855a5b7aef940547744658d /home/brand/workspace/SMSBeta/src/com/asb/smsbeta/chat/Chat.java
+1377013350000 1084 2584be9576ca69021d05dfd424652fdd413aebe7 /home/brand/workspace/SMSBeta/src/com/asb/smsbeta/db/MyDatabaseHelper.java
+1377044622000 3808 e70dcbb9f14f1a0c9342a733949dc6cfde79cda4 /home/brand/workspace/SMSBeta/src/com/asb/smsbeta/receiver/SmsReceiver.java
+1377021634000 3012 29c7a5c171f269320342736df30c326c5868ccad /home/brand/workspace/SMSBeta/src/com/asb/smsbeta/inbox/InboxFragment.java

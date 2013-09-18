@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    
+    <LinearLayout android:id="@+id/progressContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent" 
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:gravity="center">
+        
+        <ProgressBar style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/loading"
+                android:paddingTop="4dip"
+                android:singleLine="true" />
+            
+    </LinearLayout>
+    <RelativeLayout android:id="@+id/chatContainer"
+            android:layout_width="match_parent" 
+            android:layout_height="match_parent">
+	    <FrameLayout android:id="@+id/listContainer"
+	            android:layout_width="match_parent" 
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentTop="true"
+	            android:layout_above="@+id/chatEditContainer">
+	            
+	        <ListView android:id="@android:id/list"
+	                android:layout_width="match_parent" 
+	                android:layout_height="match_parent"
+	                android:drawSelectorOnTop="false"
+	                android:divider="#FFFFFF"
+	                android:dividerHeight="0dp" />
+	       <!-- <FrameLayout
+	            android:id="@android:id/empty"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            >
+	            <ProgressBar
+	                android:id="@+id/progressBar1"
+	                style="?android:attr/progressBarStyleLarge"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="center"/>
+	            
+	        </FrameLayout>  -->
+	    </FrameLayout>
+	    
+	        <RelativeLayout
+	            android:id="@+id/chatEditContainer"
+	        android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentBottom="true"
+		    android:background="@android:color/white"
+		    android:layout_marginLeft="0dp">
+		    <EditText
+		        android:id="@+id/editTextChatView"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:minHeight="80dip"
+		        android:inputType="textMultiLine"
+		        android:background="@android:color/white"
+		        android:layout_toLeftOf="@+id/buttonSend"
+		        android:paddingLeft="5dp"
+		         >
+		    </EditText>
+		    <Button
+		        android:id="@+id/buttonSend"
+		        style="?android:attr/buttonStyleSmall"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="Send"
+		        android:layout_alignParentRight="true"
+		        android:layout_alignBottom="@+id/chatEditTextView"
+		        android:layout_marginBottom="10dp"
+		         />
+		    </RelativeLayout>
+		
+	</RelativeLayout>
+</FrameLayout>

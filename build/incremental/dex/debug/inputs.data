@@ -1,0 +1,23 @@
+# incremental data. DO NOT EDIT.
+# format is <lastModified> <length> <SHA-1> <path>
+# Encoding is UTF-8
+1377057449000 279 1879b759f61d6a767a46415d2c678ded2d40eb26 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/chat/Chat.class
+1377057449000 4050 71053a77ed8f761c769c6245b3a58610fdb936d5 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/inbox/InboxFragment.class
+1377057449000 1134 89f6f057763ff9622c142b469d6aa22b65d9f770 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/db/MessageTable.class
+1377057449000 1780 2cd1f41bdd262ec7fd802c139d946014dc7fe15b /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/db/MyDatabaseHelper.class
+1377057449000 494 570f702d584193c55bb18f944b53f1f72c27ec99 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/R$string.class
+1377057449000 379 57742841b543eca0e2af135580a9fc0ac6c885f8 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/R$menu.class
+1377057449000 2654 ec679deb6550f080122d9e1a9e1df7db1930dbbc /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/receiver/SmsReceiver.class
+1377057449000 398 12a05aac9aed2aa70ca1cd1060753be75bbe502c /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/R$drawable.class
+1377057449000 555 f6a751ff02c03f8f51c8bc44e4a65f3a9fce34fc /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/R$id.class
+1377057449000 908 3054c2ee1c6c889250bd6d68e69b0425277df357 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/db/ChatTable.class
+1377057449000 331 76f0c526f58dff671c2751e296d6650879b53be3 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/R$attr.class
+1377057449000 2401 f5fa1c835f6d556bd75510146df38921ff09a24b /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/db/MyContentProvider.class
+1377057449000 422 5bde31ace0efb55aa6e06b0f0d47bbad2d4df343 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/R$style.class
+1377057449000 647 d6b856c615f654f355d9210d40b876c581a7f550 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/R.class
+1377057449000 1077 2e6d8df0a048d5e7c7c34e09ddbf6ed3dbe9d1ba /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/MainActivity.class
+1377057449000 339 5578dffbb54a02a99781f8aeb8028c98b1c11c77 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/BuildConfig.class
+1376874738000 556198 4a6be13368bb64c5a0b0460632d228a1a915f58f /home/brand/workspace/SMSBeta/libs/android-support-v4.jar
+1377057449000 452 613bd27cd9e05f4544dea65e16ce5b958b8fc978 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/R$dimen.class
+1377057449000 438 d557fce81b46cb37e0536b2d0cc0c93e7c382a87 /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/R$layout.class
+1377057449000 4045 9c34bc63fba94606eb3c038deb65dceacb932ccd /home/brand/workspace/SMSBeta/build/classes/debug/com/asb/smsbeta/chat/ChatFragment.class
