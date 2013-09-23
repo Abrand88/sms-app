@@ -6,11 +6,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Chat {
-	String uri;
-	String name;
-	String address;
-	Long id;
-	Long contact_id;
+	private String uri;
+	private String name;
+	private String address;
+	private Long id;
+	private Long contact_id;
 		
 	public Chat(){	
 	}

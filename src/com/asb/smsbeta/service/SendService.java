@@ -12,6 +12,7 @@ import android.util.Log;
 
 public class SendService extends IntentService {
 	public static final String ACTION_SMS_SENT = "com.asb.smsbeta.chat.SMS_SENT_ACTION";
+	public static final String TAG = "SendService";
 	
 	public SendService() {
 		super("SendService");
@@ -19,7 +20,7 @@ public class SendService extends IntentService {
 
 	@Override
     protected void onHandleIntent(Intent intent) {
-		Log.d("SendService", "SendService onHandleCalled");
+		Log.d(TAG, "SendService onHandleCalled");
 		Bundle extras = intent.getExtras();
 		if(extras == null){
 			//Log.d("SendService", "SendService Extras equals NULL");
@@ -27,7 +28,7 @@ public class SendService extends IntentService {
 		String address = extras.getString("address");
 		String body = extras.getString("body");
 		Uri msgUri = extras.getParcelable("uri");
-		Log.d("SendService", "SendService Body: " + body);
+		Log.d(TAG, "SendService Body: " + body);
 		if(address != null){
 			SmsManager sms = SmsManager.getDefault();
 			ArrayList<String> parts = sms.divideMessage(body);
@@ -44,7 +45,7 @@ public class SendService extends IntentService {
 			}
 			sms.sendMultipartTextMessage(address,null ,parts, pendingSendIntents, null);
 		}else{
-			Log.d("SendService", "SendService Address is NULL");
+			Log.d(TAG, "SendService Address is NULL");
 		}
     }
 }

@@ -29,6 +29,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 public class InboxFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
+	private final static String TAG = "InboxFragment";
 	
 	public interface OnChatSelectedListener {
         public void onChatSelected(Uri uri,String address);
@@ -78,14 +79,12 @@ public class InboxFragment extends ListFragment implements LoaderManager.LoaderC
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 	                                ContextMenuInfo menuInfo) {
-		Log.d("Test","onCreateContextMenu");
 	    super.onCreateContextMenu(menu, v, menuInfo);
 	    MenuInflater inflater = getActivity().getMenuInflater();
 	    inflater.inflate(R.menu.inbox_context_menu, menu);
 	}
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-		Log.d("Test","onContextItemSelected");
 	    AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 	    switch (item.getItemId()) {
 	        case R.id.delete:
@@ -107,7 +106,7 @@ public class InboxFragment extends ListFragment implements LoaderManager.LoaderC
 	String mCurFilter;
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-		Log.d("Loader Create", "Inbox Loader Create was called");
+		Log.d(TAG, "Inbox Loader Create was called");
         Uri baseUri;
         baseUri = MyContentProvider.CONTENT_INBOX_URI; 
         String select = null;
@@ -118,7 +117,7 @@ public class InboxFragment extends ListFragment implements LoaderManager.LoaderC
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader,
 			Cursor data) {
-		Log.d("inbox", "onLoaderfinished called");
+		Log.d(TAG, "onLoaderfinished called");
 		inboxAdapter.swapCursor(data);
 
         // The list should now be shown.

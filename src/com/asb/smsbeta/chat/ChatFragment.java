@@ -43,9 +43,8 @@ public class ChatFragment extends ListFragment implements LoaderManager.LoaderCa
 
 	public static ChatFragment newInstance(Uri uri,String address) {
 		final ChatFragment cf = new ChatFragment();
-		Bundle args = new Bundle();
-		//TODO set Chat class
-		Chat chat = new Chat();
+		final Bundle args = new Bundle();
+		final Chat chat = new Chat();
 		chat.setUri(uri);
 		chat.setAddress(address);
 		chat.setBundleArgs(args);
@@ -77,10 +76,10 @@ public class ChatFragment extends ListFragment implements LoaderManager.LoaderCa
 		super.onAttach(activity);
 	}
 
-	ChatCursorAdapter chatAdapter;
-	ListView lv;
-	Button btnSend;
-	EditText editText;
+	private ChatCursorAdapter chatAdapter;
+	private ListView lv;
+	private Button btnSend;
+	private EditText editText;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,

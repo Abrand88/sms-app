@@ -1,6 +1,7 @@
 package com.asb.smsbeta.contacts;
 
 import com.asb.smsbeta.R;
+import android.widget.AdapterView;
 import com.asb.smsbeta.db.InboxTable;
 import com.asb.smsbeta.db.MyContentProvider;
 
@@ -10,7 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 //import android.provider.ContactsContract;
 import android.provider.ContactsContract.Contacts;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -22,23 +23,34 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-public class ContactsFragment extends Fragment implements LoaderManager.LoaderCallbacks<Cursor> {
-	ListView lv;
-	EditText et;
-	ContactsCursorAdapter contactAdapter;
+public class ContactsFragment extends ListFragment implements 
+	LoaderManager.LoaderCallbacks<Cursor> {
+	private EditText et;
+	private ContactsCursorAdapter contactAdapter;
+	// The column index for the _ID column
+	private static final int CONTACT_ID_INDEX = 0;
+	// The column index for the LOOKUP_KEY column
+	private static final int LOOKUP_KEY_INDEX = 1;
+	
+	public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        contactAdapter = new ContactsCursorAdapter(getActivity(),null,0);
+        setListAdapter(contactAdapter);
+    }
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
 		View view = inflater.inflate(R.layout.chat_list_content, container, false);
-		lv = (ListView)view.findViewById(android.R.id.list);
 		et = (EditText) view.findViewById(R.id.editTextContactSearch);
 		return view;
 	}
 	static final String[] CONTACT_PROJECTION = new String[] {
 		Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ? Contacts.DISPLAY_NAME_PRIMARY :
         Contacts.DISPLAY_NAME,
-        Contacts._ID
+        Contacts._ID,
+        Contacts.LOOKUP_KEY
     };
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
@@ -58,5 +70,13 @@ public class ContactsFragment extends Fragment implements LoaderManager.LoaderCa
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
 		contactAdapter.swapCursor(null);
+	}
+
+	@Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+		final Cursor cursor = contactAdapter.getCursor();
+		final Uri uri = Contacts.getLookupUri(
+                cursor.getLong(CONTACT_ID_INDEX),
+                cursor.getString(LOOKUP_KEY_INDEX));
 	}
 }

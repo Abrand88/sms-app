@@ -15,10 +15,10 @@ import android.util.Log;
 public class SmsSentStatusReceiver extends BroadcastReceiver {
 	//public static final String ACTION_SMS_SENT = "com.asb.smsbeta.chat.SMS_SENT_ACTION";
 	//public static final String ACTION_SMS_DELIVERED = "com.asb.smsbeta.chat.SMS_DELIVERED";
-
+	private static final String TAG = "SentStatus";
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		Log.d("SentStatus", "SentStatus CALLED");
+		Log.d(TAG, "SentStatus CALLED");
 		String message = "no case";
 		boolean sent = false;
 		switch (getResultCode()){
@@ -39,16 +39,13 @@ public class SmsSentStatusReceiver extends BroadcastReceiver {
 			message = "Error: Radio off.";
 			break;
 		}
-		Log.d("SentStatus", "SentStatus msg: "+ message);
-		//mSendIntent.getDataString()
-		Log.d("SentStatus", "getAction() is: "+ intent.getAction());
-		//Log.d("SentStatus", "get____ is: "+ intent.getPackage());
-		//Log.d("SentStatus", "get____ is: "+ intent.getDataString());
+		Log.d(TAG, "SentStatus msg: "+ message);
+		Log.d(TAG, "getAction() is: "+ intent.getAction());
 		if(intent.getExtras() == null){
-			Log.d("SentStatus", "getExtras() is null");		
+			Log.d(TAG, "getExtras() is null");		
 		}else{
-			Log.d("SentStatus", "getExtras() NOT null");
-			Log.d("SentStatus", "Extra row_id " +intent.getExtras().getString("row_id"));
+			Log.d(TAG, "getExtras() NOT null");
+			Log.d(TAG, "Extra row_id " +intent.getExtras().getString("row_id"));
 		}
 		if(!sent){
 			Uri uri = intent.getExtras().getParcelable("uri");

@@ -25,9 +25,7 @@ import android.view.inputmethod.InputMethodManager;
 
 public class MainActivity extends FragmentActivity implements OnChatSelectedListener {
 
-	SlidingPaneLayout mSlidingPaneLayout;
-	//private BroadcastReceiver sendBroadcastReceiver;
-	//private BroadcastReceiver deliveryBroadcastReceiver;
+	private SlidingPaneLayout mSlidingPaneLayout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

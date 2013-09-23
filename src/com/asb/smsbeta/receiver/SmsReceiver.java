@@ -20,13 +20,14 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 
 public class SmsReceiver extends BroadcastReceiver {
-	String contactName;
-	Long contactID;
-	String body, address;
-
+	private String contactName;
+	private Long contactID;
+	private String body, address;
+	private static final String TAG = "onReceive";
+	
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		Log.d("onReceive", "CALLED");
+		Log.d(TAG, "CALLED");
 		Bundle extras = intent.getExtras();
 		//SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		if(extras.get( "pdus" ) != null){
@@ -37,8 +38,8 @@ public class SmsReceiver extends BroadcastReceiver {
 				SmsMessage sms = SmsMessage.createFromPdu((byte[])smsExtra[i]);
 				body = sms.getDisplayMessageBody(); //sms.getMessageBody();
 				address = sms.getDisplayOriginatingAddress();//has email check in it //sms.getOriginatingAddress();
-				Log.d("onReceive", "SMS body: "+body);
-				Log.d("onReceive", "SMS address: "+address);
+				Log.d(TAG, "SMS body: "+body);
+				Log.d(TAG, "SMS address: "+address);
 				Cursor cursor;
 				if(sms.isEmail()){
 					Uri uri = Uri.withAppendedPath(Email.CONTENT_LOOKUP_URI, Uri.encode(address));
@@ -137,68 +138,25 @@ public class SmsReceiver extends BroadcastReceiver {
 					values.put(MessageTable.INBOX_ID, 
 							cursor4.getLong(cursor4.getColumnIndexOrThrow(InboxTable._ID)));
 				}else{
-					Log.d("onReceive", "Get chat id ERROR!!!!!!!!!");
+					Log.d(TAG, "Get chat id ERROR");
 				}
-				Log.d("onReceive", "Before msg insert");
+				Log.d(TAG, "Before msg insert");
 				resolver.insert(MyContentProvider.CONTENT_MESSAGE_URI, values);
-				Log.d("onReceive", "After msg insert");
+				Log.d(TAG, "After msg insert");
 			}
 		} else {
 			//MMS
-			Log.d("onReceive", "Intent getAction"+ intent.getAction());
+			Log.d(TAG, "Intent getAction"+ intent.getAction());
 			Iterator<String> it = extras.keySet().iterator();
 			String key ="";
 			while (it.hasNext()){
-				Log.d("onReceive", "Key: "+ (key = it.next()));
-				Log.d("onReceive", "Value: "+ extras.get(key).toString());
+				Log.d(TAG, "Key: "+ (key = it.next()));
+				Log.d(TAG, "Value: "+ extras.get(key).toString());
 			}
 		}
 	}
-	//putSmsToDatabase(resolver, sms,name);
 	/*boolean show =prefs.getBoolean("pref_key_top_bar",false);
 	if(show){
 		showAppNotification(context,name,message,prefs);
-	}*/
-	//String line = sms.getOriginatingAddress().replaceAll("\\+1", ""); //"//D"
-	//values.put( MessageTable.DATE, sms.getTimestampMillis() ); //Type Long
-	//values.put( MessageTable.TYPE, 1 );
-
-	//private void putSmsToDatabase( ContentResolver contentResolver, SmsMessage sms, String namet )
-	//{
-	// Create SMS row
-	/*ContentValues values = new ContentValues();
-		values.put( MessageTable.NAME, namet );
-		String line = sms.getOriginatingAddress().replaceAll("\\+1", ""); //"//D"
-		values.put( MessageTable.ADDRESS, line);
-		//values.put( MessageTable.DATE, sms.getTimestampMillis() ); //Type Long
-		values.put( MessageTable.UNREAD, 1); // 1 for NOT read 
-		values.put( MessageTable.SEEN, 0);
-		//values.put( STATUS, sms.getStatus() );
-		values.put( MessageTable.TYPE, 1 );
-		values.put( MessageTable.BODY, sms.getMessageBody().toString());
-		long t_id;
-		Cursor cursor = contentResolver.query(MySmsContentProvider.CONTENT_URI,
-				new String[]{MessageTable.ADDRESS,MessageTable.THREAD_ID},
-				MessageTable.ADDRESS +" =?",
-				new String[]{line},null);
-		if(cursor.moveToFirst()){
-			t_id = cursor.getLong(cursor.getColumnIndex(MessageTable.THREAD_ID));
-		}else{
-			Cursor c =  contentResolver.query(MySmsContentProvider.CONTENT_MAX_THREAD_URI, null, null, null, null);
-			if(c.moveToFirst()){
-				t_id = c.getLong(c.getColumnIndex(MessageTable.THREAD_ID));
-				t_id++;
-			}else{
-				t_id = (long) 1 ;
-			}
-		}
-
-		values.put( MessageTable.THREAD_ID, t_id);
-		try {
-			//contentResolver.insert(MySmsContentProvider.CONTENT_URI, values);
-		} catch ( Exception e ) { 
-			Log.d("SMS Receiver", "Failed");
-		}*/
-	//}
-
+	}*/	
 }

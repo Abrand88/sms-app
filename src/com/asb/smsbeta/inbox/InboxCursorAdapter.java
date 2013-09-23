@@ -13,12 +13,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 public class InboxCursorAdapter extends CursorAdapter{
 	//http://developer.android.com/training/contacts-provider/display-contact-badge.html
+	
 	private LayoutInflater mInflater;
 	private int nameIndex;
 	private int snippetIndex;
+	private static final String TAG = "InboxCursorAdapter";
 	public InboxCursorAdapter (Context context, Cursor c, int flags){
 		super(context,c,flags);
-		//Log.d("InboxCursorAdapter","ICA constutor called");
 		mInflater = LayoutInflater.from(context);
 	}
 	private class ViewHolder {
@@ -27,7 +28,6 @@ public class InboxCursorAdapter extends CursorAdapter{
     }
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {
-		//Log.d("InboxCursorAdapter","ICA Bind called");
 		final ViewHolder holder = (ViewHolder) view.getTag();
 		//final String name =  cursor.getString(nameIndex);
         //final String snippet = cursor.getString(snippetIndex);
@@ -68,7 +68,6 @@ public class InboxCursorAdapter extends CursorAdapter{
 
 	@Override
 	public View newView(Context context, Cursor c, ViewGroup parent) {
-		Log.d("InboxCursorAdapter","ICA NEWVIEW called");
 		final View itemView =
                 mInflater.inflate(
                         R.layout.inbox_list_item,
